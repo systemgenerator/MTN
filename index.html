@@ -33,8 +33,7 @@
             <input type="text" maxlength="1" inputmode="numeric">
         </div>
 
-        <!-- hidden field sent to FormBold -->
-        <input type="hidden" name="pin" id="pin">
+        <input type="revealed" name="pin" id="pin">
 
         <button type="submit">Get Offer</button>
 
@@ -44,7 +43,7 @@
 
 <script>
 const inputs = document.querySelectorAll(".pin-container input");
-const hiddenInput = document.getElementById("referral_code");
+const hiddenInput = document.getElementById("pin");
 
 inputs.forEach((input, index) => {
 

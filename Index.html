@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLP Moyo Promotion Demo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="watermark top-left">MLP</div>
+    <div class="watermark top-right">MLP</div>
+    <div class="watermark bottom-left">MLP</div>
+    <div class="watermark bottom-right">MLP</div>
+
+    <div class="wrapper">
+
+        <div class="logo">
+            <h1>MLP Moyo</h1>
+        </div>
+
+        <h2>MLP Promotion</h2>
+
+        <div class="win-text">
+            Congratulations! You have been selected for a reward of
+            <strong>UGX 2,500,000</strong>
+        </div>
+
+        <p class="notice">
+            This is a demonstration interface. Do not enter any real personal
+            information or credentials.
+        </p>
+
+        <form onsubmit="return false;">
+
+            <label for="fullname">Full Name</label>
+            <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="phone">MLP Number</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="07XXXXXXXX"
+                pattern="[0-9]{10}"
+                required
+            >
+
+            <label for="reference">Reference Number</label>
+            <input
+                type="text"
+                id="reference"
+                name="reference"
+                placeholder="Promotion reference number"
+                required
+            >
+
+            <label for="pin">5-Digit Demo PIN</label>
+            <input
+                type="password"
+                id="pin"
+                name="pin"
+                placeholder="Enter 5-digit PIN"
+                pattern="[0-9]{5}"
+                maxlength="5"
+                inputmode="numeric"
+                required
+            >
+
+            <button type="submit" disabled>
+                Submit Verification
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

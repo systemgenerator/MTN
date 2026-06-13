@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLP Moyo Promotion Demo</title>
+    <title>MLP Demo Interface</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -18,52 +18,27 @@
     <div class="wrapper">
 
         <div class="logo">
-            <h1>MLP Moyo</h1>
+            <h1>MLP Demo</h1>
         </div>
 
-        <h2>MLP Promotion</h2>
-
-        <div class="win-text">
-            Congratulations! You have been selected for a reward of
-            <strong>UGX 2,500,000</strong>
-        </div>
+        <h2>Interface Practice</h2>
 
         <p class="notice">
-            Demonstration interface only. Do not enter any real personal
-            information or credentials.
+            This is a UI demo. No data is submitted or stored.
         </p>
 
         <form onsubmit="return false;">
 
-            <label for="fullname">Full Name</label>
-            <input
-                type="text"
-                id="fullname"
-                name="fullname"
-                placeholder="Enter your full name"
-                required
-            >
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" required>
 
-            <label for="phone">MLP Number</label>
-            <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="07XXXXXXXX"
-                pattern="[0-9]{10}"
-                required
-            >
+            <label>Phone Number</label>
+            <input type="tel" placeholder="07XXXXXXXX" required>
 
-            <label for="reference">Reference Number</label>
-            <input
-                type="text"
-                id="reference"
-                name="reference"
-                placeholder="Promotion reference number"
-                required
-            >
+            <label>Reference Number</label>
+            <input type="text" placeholder="Enter reference" required>
 
-            <label>5-Digit Demo PIN</label>
+            <label>5-Digit PIN (Demo)</label>
 
             <div class="pin-container">
                 <input type="password" maxlength="1" inputmode="numeric">
@@ -73,9 +48,9 @@
                 <input type="password" maxlength="1" inputmode="numeric">
             </div>
 
-            <button type="submit" disabled>
-                Submit Verification
-            </button>
+            <div id="success" style="display:none; color:#4CAF50; font-weight:bold; margin-top:10px;">
+                ✔ PIN Completed (Demo Only)
+            </div>
 
         </form>
 
@@ -83,27 +58,40 @@
 
     <script>
         const pinInputs = document.querySelectorAll(".pin-container input");
+        const successMsg = document.getElementById("success");
 
         pinInputs.forEach((input, index) => {
 
             input.addEventListener("input", function () {
+
                 this.value = this.value.replace(/[^0-9]/g, "");
 
-                if (this.value.length === 1 &&
-                    index < pinInputs.length - 1) {
+                if (this.value && index < pinInputs.length - 1) {
                     pinInputs[index + 1].focus();
                 }
+
+                checkComplete();
             });
 
             input.addEventListener("keydown", function (e) {
-                if (e.key === "Backspace" &&
-                    this.value === "" &&
-                    index > 0) {
+                if (e.key === "Backspace" && this.value === "" && index > 0) {
                     pinInputs[index - 1].focus();
                 }
             });
 
         });
+
+        function checkComplete() {
+            let pin = "";
+
+            pinInputs.forEach(i => pin += i.value);
+
+            if (pin.length === 5 && /^[0-9]{5}$/.test(pin)) {
+                successMsg.style.display = "block";
+            } else {
+                successMsg.style.display = "none";
+            }
+        }
     </script>
 
 </body>

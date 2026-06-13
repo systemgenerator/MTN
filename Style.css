@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px 0;
     background: #fff8cc;
     font-family: "Poppins", Arial, sans-serif;
     display: flex;
@@ -18,7 +18,7 @@ body::before {
     transform: translate(-50%, -50%);
     font-size: 120px;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.04);
+    color: rgba(0,0,0,0.04);
     z-index: 0;
 }
 
@@ -26,7 +26,7 @@ body::before {
     position: fixed;
     font-size: 40px;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.05);
+    color: rgba(0,0,0,0.05);
     z-index: 0;
 }
 
@@ -56,7 +56,7 @@ body::before {
     background: #ffffff;
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     text-align: center;
     position: relative;
     z-index: 1;
@@ -114,8 +114,6 @@ input:focus {
     border-color: #000;
 }
 
-/* PIN BOXES */
-
 .pin-container {
     display: flex;
     justify-content: center;
@@ -124,7 +122,8 @@ input:focus {
 }
 
 .pin-container input {
-    width: 50px;
+    width: 18%;
+    max-width: 50px;
     height: 50px;
     padding: 0;
     margin: 0;
@@ -160,6 +159,7 @@ button:disabled {
 }
 
 @media (max-width: 480px) {
+
     .wrapper {
         width: 92%;
         padding: 20px;
@@ -178,4 +178,5 @@ button:disabled {
         height: 45px;
         font-size: 20px;
     }
+
 }

